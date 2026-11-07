@@ -1,0 +1,393 @@
+/* ==============================================================================
+   DEEPFAKE GUARDIAN AI - ADVANCED CYBER-FORENSIC DESIGN SYSTEM
+   Theme: Obsidian Cyberpunk, Deep Space Glassmorphism & Neon HUD
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+
+/* --- Root Color Variables --- */
+:root {
+    --bg-deep: #050811;
+    --bg-surface: #0a0f1d;
+    --bg-card: rgba(13, 20, 36, 0.72);
+    --border-subtle: rgba(56, 189, 248, 0.16);
+    --border-glow: rgba(56, 189, 248, 0.45);
+    
+    --neon-cyan: #00f2fe;
+    --neon-blue: #38bdf8;
+    --neon-emerald: #10b981;
+    --neon-rose: #f43f5e;
+    --neon-crimson: #ef4444;
+    --neon-purple: #a855f7;
+    --neon-amber: #f59e0b;
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+}
+
+/* --- Global Background & Typography --- */
+html, body, .stApp {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    background-color: var(--bg-deep) !important;
+    background-image: 
+        radial-gradient(circle at 10% 15%, rgba(14, 165, 233, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 85%, rgba(139, 92, 246, 0.08) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px) !important;
+    background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px !important;
+    color: var(--text-primary) !important;
+}
+
+code, pre, .font-mono, [data-testid="stMetricValue"] {
+    font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* --- Sidebar Glassmorphism --- */
+section[data-testid="stSidebar"] {
+    background: rgba(7, 11, 20, 0.92) !important;
+    border-right: 1px solid rgba(56, 189, 248, 0.18) !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+section[data-testid="stSidebar"] .block-container {
+    padding-top: 2rem !important;
+}
+
+/* --- Top Header HUD Banner --- */
+.guardian-header {
+    background: linear-gradient(135deg, rgba(11, 18, 33, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 26px;
+    box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.12);
+    backdrop-filter: blur(14px);
+    position: relative;
+    overflow: hidden;
+}
+
+.guardian-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #38bdf8 30%, #818cf8 70%, transparent 100%);
+}
+
+.header-title {
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 30%, #38bdf8 75%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.header-subtitle {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: 6px;
+}
+
+/* --- Status Indicator Glow Dot --- */
+.pulse-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    margin-right: 6px;
+    background-color: #10b981;
+    box-shadow: 0 0 12px #10b981;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.35); opacity: 0.65; }
+}
+
+/* --- Holographic Verdict Cards --- */
+.verdict-banner-fake {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(153, 27, 27, 0.3) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.7);
+    border-radius: 16px;
+    padding: 24px 30px;
+    margin: 20px 0 30px 0;
+    box-shadow: 0 0 35px rgba(239, 68, 68, 0.25), inset 0 0 20px rgba(239, 68, 68, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.verdict-banner-fake::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 4px; height: 100%;
+    background: #ef4444;
+    box-shadow: 0 0 12px #ef4444;
+}
+
+.verdict-banner-real {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 95, 70, 0.3) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.7);
+    border-radius: 16px;
+    padding: 24px 30px;
+    margin: 20px 0 30px 0;
+    box-shadow: 0 0 35px rgba(16, 185, 129, 0.25), inset 0 0 20px rgba(16, 185, 129, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.verdict-banner-real::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 4px; height: 100%;
+    background: #10b981;
+    box-shadow: 0 0 12px #10b981;
+}
+
+/* --- Cyber Metric HUD Box --- */
+.hud-metric-card {
+    background: rgba(13, 20, 36, 0.7);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    border-radius: 14px;
+    padding: 20px 18px;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.hud-metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6), transparent);
+}
+
+.hud-metric-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+.hud-metric-title {
+    color: #94a3b8;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+}
+
+.hud-metric-value {
+    font-size: 2.1rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+.hud-metric-sub {
+    color: #64748b;
+    font-size: 0.75rem;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+/* --- High-Tech Badges --- */
+.cyber-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.badge-blue {
+    background: rgba(14, 165, 233, 0.15);
+    border: 1px solid rgba(14, 165, 233, 0.4);
+    color: #38bdf8;
+}
+
+.badge-green {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+}
+
+.badge-red {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+}
+
+.badge-purple {
+    background: rgba(168, 85, 247, 0.15);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    color: #c084fc;
+}
+
+/* --- Streamlit Tabs Styling Overrides --- */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px;
+    background-color: rgba(13, 20, 36, 0.6);
+    padding: 6px;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: 8px;
+    color: #94a3b8 !important;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 10px 18px;
+    transition: all 0.2s ease;
+    border: none !important;
+    background: transparent !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    color: #f8fafc !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.25) 0%, rgba(37, 99, 235, 0.3) 100%) !important;
+    color: #38bdf8 !important;
+    border: 1px solid rgba(56, 189, 248, 0.4) !important;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2) !important;
+}
+
+/* --- Streamlit Primary & Form Buttons --- */
+.stButton > button {
+    background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(56, 189, 248, 0.5) !important;
+    border-radius: 10px !important;
+    font-weight: 700 !important;
+    font-size: 0.92rem !important;
+    letter-spacing: 0.5px !important;
+    padding: 12px 24px !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3) !important;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 25px rgba(56, 189, 248, 0.5) !important;
+    border-color: #38bdf8 !important;
+}
+
+/* --- Input Fields & Select Boxes --- */
+div[data-baseweb="input"] {
+    background-color: rgba(15, 23, 42, 0.75) !important;
+    border: 1px solid rgba(56, 189, 248, 0.22) !important;
+    border-radius: 10px !important;
+    color: #f8fafc !important;
+    transition: all 0.2s ease !important;
+}
+
+div[data-baseweb="input"]:focus-within {
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3) !important;
+}
+
+div[data-baseweb="select"] {
+    border-radius: 10px !important;
+}
+
+/* --- Card Containers --- */
+.cyber-card {
+    background: rgba(13, 20, 36, 0.65);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+}
+
+.cyber-card-header {
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* --- Sample Selector Card --- */
+.sample-card {
+    background: rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sample-card:hover {
+    border-color: #38bdf8;
+    background: rgba(15, 23, 42, 0.9);
+    transform: translateY(-2px);
+}
+
+/* --- Responsive Scrollbars --- */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #050811;
+}
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #38bdf8;
+}
+
+/* --- High-Tech File Uploader Dropzone --- */
+[data-testid="stFileUploader"] {
+    width: 100% !important;
+}
+
+[data-testid="stFileUploaderDropzone"] {
+    background: rgba(13, 20, 36, 0.75) !important;
+    border: 2px dashed rgba(56, 189, 248, 0.45) !important;
+    border-radius: 14px !important;
+    padding: 24px 20px !important;
+    transition: all 0.25s ease !important;
+    cursor: pointer !important;
+}
+
+[data-testid="stFileUploaderDropzone"]:hover {
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.25) !important;
+    background: rgba(15, 23, 42, 0.9) !important;
+}
+
+[data-testid="stFileUploaderDropzone"] [data-testid="baseButton-secondary"] {
+    background: linear-gradient(135deg, #0ea5e9, #2563eb) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(56, 189, 248, 0.6) !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 10px rgba(14, 165, 233, 0.3) !important;
+}
+
